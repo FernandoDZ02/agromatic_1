@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutoriales</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('logo.png');
+            background-size: 50%; 
+            background-repeat: no-repeat; 
+            background-position: center; 
+            background-color: rgba(0, 0, 0, 0.2); /* Fondo negro con 70% de opacidad */
+            height: 200vh; 
+            position: relative; 
+        }
+
+        .menu-toggle {
+            position: fixed;
+            top: 10px;
+            left: 20px;
+            background-color: rgba(34, 153, 84, 0.8); 
+            color: white;
+            border: none;
+            padding: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+            z-index: 1000;
+        }
+
+        .menu-toggle:hover {
+            background-color: rgba(0, 86, 179, 0.8);
+        }
+
+        .nav-list {
+            list-style: none;
+            position: fixed;
+            top: 60px;
+            left: 20px; 
+            background-color: rgba(34, 153, 84, 0.8);
+            border-radius: 5px;
+            padding: 10px;
+            display: none; 
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .nav-list li {
+            margin: 5px 0;
+            position: relative; 
+        }
+
+        .nav-list a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            display: block; 
+            border-radius: 3px;
+            transition: background 0.3s;
+        }
+
+        .nav-list a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .sub-menu {
+            display: none; 
+            position: absolute;
+            top: 0;
+            left: 100%; 
+            background-color: rgba(34, 153, 84, 0.8);
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .nav-list li:hover .sub-menu {
+            display: block; 
+            z-index: 1000;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(34, 153, 84, 0.8);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none; 
+            transition: background 0.3s;
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            background-color: rgba(0, 86, 179, 0.8);
+        }
+
+        /* Estilo para el título */
+        h1 {
+            text-align: center;
+            margin-top: 60px;
+            color: #4CAF50; /* Color verde */
+            font-size: 36px; /* Tamaño de fuente */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra */
+        }
+
+        h2 {
+            text-align: center;
+            color: #555;
+            font-size: 24px; /* Tamaño de subtítulo */
+            margin-top: 10px;
+        }
+        
+
+.logo {
+    position: absolute;
+    top: -50px;
+    right: 10px;
+    height: 100px;
+    width: auto;
+}
+
+    /* Estilo de la galería */
+    .video-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 70px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Estilo de la galería de cada sección */
+    .video-gallery {
+      display: grid;
+      flex-wrap: wrap;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px; /* Espacio entre los videos */
+      padding: 0 20px;
+      justify-content: flex-start; /* Alinea los videos a la izquierda */
+    }
+
+    /* Estilo de cada contenedor de video */
+    .video-item {
+      position: relative;
+      overflow: hidden;
+      padding-top: 56.25%; /* Relación de aspecto 16:9 */
+      background-color: #e0e7ff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 500px;
+      margin-bottom: 20px; /* Espacio adicional abajo de cada video */
+    }
+    /* Ajuste del iframe */
+    .video-item iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+    }
+  
+
+    </style>
+
+</head>
+<body>
+    <a href="index.php"> 
+        <img src="logo.png" alt="Logo" class="logo">
+    </a>
+
+<div class="overlay"></div>
+<button class="menu-toggle" id="menu-toggle">☰ Menú</button>
+<ul class="nav-list" id="nav-list">
+<li>
+        <a href="index.php">Inicio</a>
+        <ul class="sub-menu">
+            
+            <li><a href="index.php">Contactanos</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="index.php">Sobre Nosotros</a>
+        <ul class="sub-menu">
+            <li><a href="index.php">Nuestro Equipo</a></li>
+            <li><a href="index.php">Misión y Visión</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="Fruta.php">Frutas</a>
+        <ul class="sub-menu">
+            <li><a href="Fruta.php">Acidas</a></li>
+            <li><a href="Fruta.php">Semiacidas</a></li>
+	        <li><a href="Fruta.php">Dulces</a></li>
+	        <li><a href="Fruta.php">Neutras</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="Verdura.php">Verduras</a>
+        <ul class="sub-menu">
+            <li><a href="Verdura.php">Hojas</a></li>
+            <li><a href="Verdura.php">Raices</a></li>
+	        <li><a href="Verdura.php">Flores</a></li>
+            <li><a href="Verdura.php">Tallos</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="plantas.php">Plantas</a>
+        <ul class="sub-menu">
+            <li><a href="plantas.php">Hojas</a></li>
+            <li><a href="plantas.php">Raices</a></li>
+	        <li><a href="plantas.php">Flores</a></li>
+            <li><a href="plantas.php">Tallos</a></li>
+        </ul>
+    </li>
+    <li>
+        <a>Material</a>
+        <ul class="sub-menu">
+            <li><a href="Tutoriales.html">Tutoriales</a></li>
+            <li><a href="Calculadora.php">Calculadora</a></li>
+            <li><a href="mapa.php">Mapa</a></li>
+            <li><a href="calendario.php">Calendario</a></li>
+            <li><a href="Minijuego.php">Quizz</a></li>
+        </ul>
+    </li>
+</ul>
+    
+    <button class="back-to-top" id="back-to-top">↑ Volver Arriba</button>
+
+<h1>Tutoriales</h1>
+
+
+<section class="video-section">
+    <h2>Sección 1: Tutoriales</h2>
+    <div class="video-gallery">
+      <div class="video-item" id="player1"></div>
+      <div class="video-item" id="player2"></div>
+    </div>
+  </section>
+
+  <!-- Sección 2 -->
+  <section class="video-section">
+    <h2>Sección 2: Documentales</h2>
+    <div class="video-gallery">
+      <div class="video-item" id="player3"></div>
+      <div class="video-item" id="player4"></div>
+      
+    </div>
+  </section>
+  <!-- Carga de la API de YouTube -->
+  <script>
+    // 1. Cargar la API de IFrame de YouTube de manera asíncrona
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // 2. Función llamada por la API para inicializar los reproductores
+    var players = {};
+    function onYouTubeIframeAPIReady() {
+      players.player1 = new YT.Player('player1', {
+        videoId: 'eg-daGqiRSg',  // ID del primer video
+        playerVars: {
+          'autoplay': 0,
+          'controls': 1
+        }
+      });
+
+      players.player2 = new YT.Player('player2', {
+        videoId: 'eg-daGqiRSg',  // Reemplaza con el ID del segundo video
+        playerVars: {
+          'autoplay': 0,
+          'controls': 1
+        }
+      });
+
+      players.player3 = new YT.Player('player3', {
+        videoId: 'eg-daGqiRSg',  // Reemplaza con el ID del tercer video
+        playerVars: {
+          'autoplay': 0,
+          'controls': 1
+        }
+      });
+
+      players.player4 = new YT.Player('player4', {
+        videoId: 'eg-daGqiRSg',  // Reemplaza con el ID del cuarto video
+        playerVars: {
+          'autoplay': 0,
+          'controls': 1
+        }
+      });
+    }
+  </script>
+
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navList = document.getElementById('nav-list');
+    const backToTop = document.getElementById('back-to-top');
+
+    menuToggle.addEventListener('click', () => {
+        navList.style.display = navList.style.display === 'none' || navList.style.display === '' ? 'block' : 'none';
+    });
+
+    window.addEventListener('scroll', () => {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            backToTop.style.display = 'block';
+        } else {
+            backToTop.style.display = 'none';
+        }
+    });
+
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+
+</body>
+</html>
